@@ -1,8 +1,9 @@
 #import "AbbreviationMaker.h"
 
 @implementation AbbreviationMaker
-// Complete the abbreviation function below.
 - (NSString *) abbreviationFromA:(NSString *)a toB:(NSString *)b {
-    return @"Test";
+    if (([a length] == 0) || ([b length]==0) || !a || !b) return @"NO";
+    NSString *modifiedA = [[[a uppercaseString] componentsSeparatedByCharactersInSet:[[NSCharacterSet characterSetWithCharactersInString:b] invertedSet]] componentsJoinedByString:@""];
+    return [modifiedA isEqualToString:b]? @"YES" : @"NO";
 }
 @end
